@@ -17,8 +17,9 @@ public class Main {
         System.out.println("Suis moi on va chercher ta baguette mais oublie pas, c'est la baguette choisit le sorcier");
         Wand wand = new Wand("chêne", 12, Core.randomCore());
         Core core = Core.randomCore();
+
         wand.setCore(core);
-        System.out.println("Ta baguette t'a choisi ! C'est du bois de " + wand.getWood() + " et elle mesure  " + wand.getLength() + " pouces, avec ça comme " + wand.getCore() + " coeur.");
+        System.out.println("Ta baguette t'a choisi ! C'est du bois de " + wand.getWood() + " et elle mesure  " + wand.getLength() + " pouces, avec ça comme coeur " + wand.getCore() );
 
         System.out.println("Il est maintenant temps de choisir votre maison de Poudlard.");
         SortingHat sortingHat = new SortingHat();
@@ -28,5 +29,6 @@ public class Main {
         PV PV = new PV();
         int healthPoints = PV.getHealthPoints();
         System.out.println("LE JEU PEUT ENFIN COMMENCER TU COMMENCES AVEC " + healthPoints + " POINTS DE VIE");
+
     }
 }

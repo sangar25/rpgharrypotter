@@ -1,4 +1,4 @@
 package org.isep;
 
-public class spell {
+public class Enemy {
 }

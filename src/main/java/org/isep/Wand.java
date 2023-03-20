@@ -52,6 +52,6 @@ public class Wand {
         // Print out the wand's properties
         System.out.println("Wood: " + wand.getWood());
         System.out.println("Length: " + wand.getLength());
-        System.out.println("Core: " + wand.getCore().getType());
+        System.out.println("Core: " + wand.getCore().name());
     }
 }
