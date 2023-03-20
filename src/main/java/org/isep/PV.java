@@ -1,12 +1,12 @@
 package org.isep;
 import java.util.Random;
 
-public class Player {
+public class PV {
     private int healthPoints;
     private int rewardPoints;
     private Random rand;
 
-    public Player() {
+    public PV() {
         this.healthPoints = 100;
         this.rewardPoints = 0;
         this.rand = new Random();
@@ -31,7 +31,7 @@ public class Player {
         }
     }
 
-    public void attack(Player target) {
+    public void attack(PV target) {
         int damage = rand.nextInt(20) + 1;
         target.takeDamage(damage);
         if (target.getHealthPoints() == 0) {

@@ -12,21 +12,21 @@ public class Main {
         String wizardName = sc.nextLine();
 
         Wizard wizard = new Wizard(wizardName);
-        System.out.println("Jolie prenom !, " + wizard.getName() + "!");
+        System.out.println("Jolie prenom ! " + wizard.getName() + "!");
 
-        System.out.println("Suis moi on va chercher ta baguette mais oublie pas la baguette choisit le sorcier");
-        Wand wand = new Wand();
+        System.out.println("Suis moi on va chercher ta baguette mais oublie pas, c'est la baguette choisit le sorcier");
+        Wand wand = new Wand("chêne", 12, Core.randomCore());
         Core core = Core.randomCore();
         wand.setCore(core);
-        System.out.println("Your wand has chosen you! It has a " + wand.getWood() + " wood and a " + wand.getLength() + " inch length, with a " + wand.getCore() + " core.");
+        System.out.println("Ta baguette t'a choisi ! C'est du bois de " + wand.getWood() + " et elle mesure  " + wand.getLength() + " pouces, avec ça comme " + wand.getCore() + " coeur.");
 
-        System.out.println("Il est maintenant temps de vous répartir dans votre maison de Poudlard.");
+        System.out.println("Il est maintenant temps de choisir votre maison de Poudlard.");
         SortingHat sortingHat = new SortingHat();
-        System.out.println("votre maison est ...");
+        System.out.println("Votre maison est ...");
         System.out.println(sortingHat.randomHouse().getName() + "!");
 
-        Player player = new Player();
-        int healthPoints = player.getHealthPoints();
+        PV PV = new PV();
+        int healthPoints = PV.getHealthPoints();
         System.out.println("LE JEU PEUT ENFIN COMMENCER TU COMMENCES AVEC " + healthPoints + " POINTS DE VIE");
     }
 }

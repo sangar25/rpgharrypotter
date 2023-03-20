@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58aaa4f9-3341-40f0-9685-0e0903d496b6" name="Changes" comment="nouvelle version">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/isep/House.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/isep/Player.java" afterDir="false" />
+    <list default="true" id="58aaa4f9-3341-40f0-9685-0e0903d496b6" name="Changes" comment="maj 2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/isep/Pet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/isep/Potion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/isep/spell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Core.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/SortingHat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/SortingHat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/PV.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Wand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Wizard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,12 +83,20 @@
       <option name="project" value="LOCAL" />
       <updated>1679239924300</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="maj 2">
+      <created>1679245147929</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679245147929</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="nouvelle version" />
-    <option name="LAST_COMMIT_MESSAGE" value="nouvelle version" />
+    <MESSAGE value="maj 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="maj 2" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/rpgharrypotter$Main.ic" NAME="Main Coverage Results" MODIFIED="1679241484001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

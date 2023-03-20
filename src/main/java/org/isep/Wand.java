@@ -1,5 +1,4 @@
 package org.isep;
-import java.util.Random;
 
 import java.util.Random;
 
@@ -7,12 +6,6 @@ public class Wand {
     private String wood;
     private int length;
     private Core core;
-
-    public Wand() {
-        // Default values for wood and length
-        this.wood = "unknown";
-        this.length = 0;
-    }
 
     public Wand(String wood, int length, Core core) {
         this.wood = wood;
@@ -47,15 +40,18 @@ public class Wand {
     public static void main(String[] args) {
         String[] woods = {"oak", "pine", "birch", "ash", "maple"};
         Random rand = new Random();
-        Wand wand = new Wand();
 
         // Choose random values for the wand
         int randomLength = rand.nextInt(12) + 8; // random integer between 8 and 19
         String randomWood = woods[rand.nextInt(woods.length)];
+        Core randomCore = Core.randomCore();
 
-        // Set the values for the wand
-        wand.setLength(randomLength);
-        wand.setWood(randomWood);
+        // Create a new wand with the random values
+        Wand wand = new Wand(randomWood, randomLength, randomCore);
 
+        // Print out the wand's properties
+        System.out.println("Wood: " + wand.getWood());
+        System.out.println("Length: " + wand.getLength());
+        System.out.println("Core: " + wand.getCore().getType());
     }
 }
