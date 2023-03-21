@@ -31,6 +31,9 @@ public class PV {
         if (healthPoints < 0) {
             healthPoints = 0;
         }
+        else if (healthPoints > 100) {
+            healthPoints = 100;
+        }
     }
 
     public void attack(PV target) {
@@ -53,14 +56,31 @@ public class PV {
         if (choix == 1) {
             // Augmenter les points de vie
             healthPoints += 10;
-            System.out.println("Vos points de vie ont été augmentés de 10. Vous avez maintenant " + healthPoints + " points de vie.");
+            if (healthPoints > 100) {
+                healthPoints = 100;
+            }
+            System.out.println("Vos points de vie ont été augmentés. Vous avez maintenant " + healthPoints + " points de vie (maximum).");
         } else if (choix == 2) {
             // Augmenter les points de dégâts
             System.out.print("Combien de points de dégâts voulez-vous ajouter ? ");
             int damagePoints = sc.nextInt();
+            if (damagePoints > 100) {
+                damagePoints = 100;
+            }
             System.out.println("Vos points de dégâts ont été augmentés de " + damagePoints + ". Vous infligez maintenant " + damagePoints + " points de dégâts.");
         } else {
             System.out.println("Choix invalide.");
         }
+
     }
+    public void loseHealthPoints(int points) {
+        healthPoints -= points;
+        if (healthPoints < 0) {
+            healthPoints = 0;
+        }
+        else if (healthPoints > 100) {
+            healthPoints = 100;
+        }
+    }
+
 }

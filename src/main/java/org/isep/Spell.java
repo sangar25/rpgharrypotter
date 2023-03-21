@@ -3,7 +3,7 @@ package org.isep;
 import java.util.Random;
 
 public enum Spell {
-    LUMOS(90),
+    LUMOS(5),
     WINGARDIUM_LEVIOSA(80),
     EXPECTO_PATRONUM(70),
     AVADA_KEDAVRA(5);

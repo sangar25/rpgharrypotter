@@ -31,22 +31,49 @@ public class Main {
         System.out.println("LE JEU PEUT ENFIN COMMENCER TU COMMENCES AVEC " + healthPoints + " POINTS DE VIE");
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Voulez-vous lancer le sort LUMOS ou le sort WINGARDIUM LEVIOSA ?");
-        System.out.println("1. LUMOS");
-        System.out.println("2. WINGARDIUM LEVIOSA");
+        System.out.println("LA PREMIERE EPREUVE: The Philosopher’s Stone");
+        // créer l'ennemi Troll
 
-        int choix = scanner.nextInt();
+        Enemy troll = new Enemy("Troll", 50, 10, 5, 20);
 
-        if (choix == 1) {
-            // L'utilisateur a choisi le sort LUMOS
-            System.out.println(wizard.getName() + " lance le sort LUMOS sur la cible !");
-            pv.winFight();
-        } else if (choix == 2) {
-            // L'utilisateur a choisi le sort WINGARDIUM LEVIOSA
-            System.out.println(wizard.getName() + " lance le sort WINGARDIUM LEVIOSA sur la cible !");
-            pv.winFight();
-        } else {
-            System.out.println("Choix invalide.");
+        // afficher le message de combat
+        System.out.println("Un Troll sauvage apparaît !");
+
+        // boucle de combat
+        while (wizard.getHealthPoints() > 0 && troll.getHealthPoints() > 0) {
+            System.out.println("Le Troll attaque " + wizard.getName() + " !");
+            troll.trollAttack(wizard);
+
+            // vérifier si le joueur est mort
+            if (wizard.getHealthPoints() <= 0) {
+                System.out.println(wizard.getName() + " est KO !");
+                break;
+            }
+
+            // choix du sort
+            System.out.println(wizard.getName() + ", que voulez-vous faire ?");
+            System.out.println("1. LUMOS");
+            System.out.println("2. WINGARDIUM LEVIOSA");
+            int choix = scanner.nextInt();
+
+            // utiliser le sort choisi
+            if (choix == 1) {
+                System.out.println(wizard.getName() + " lance le sort LUMOS sur le Troll !");
+                troll.loseHealthPoints(20);
+            } else if (choix == 2) {
+                System.out.println(wizard.getName() + " lance le sort WINGARDIUM LEVIOSA sur le Troll !");
+                troll.loseHealthPoints(30);
+            } else {
+                System.out.println("Choix invalide.");
+            }
+
+            // vérifier si le Troll est mort
+            if (troll.getHealthPoints() <= 0) {
+                System.out.println("Le Troll est vaincu !");
+                break;
+            }
+
+
         }
     }
 }

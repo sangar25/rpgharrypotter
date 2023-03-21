@@ -37,6 +37,11 @@ public class Wand {
         this.core = core;
     }
 
+    public int getPower() {
+        Random rand = new Random();
+        return rand.nextInt(10) + 1; // Random integer between 1 and 10
+    }
+
     public static void main(String[] args) {
         String[] woods = {"oak", "pine", "birch", "ash", "maple"};
         Random rand = new Random();
@@ -53,5 +58,6 @@ public class Wand {
         System.out.println("Wood: " + wand.getWood());
         System.out.println("Length: " + wand.getLength());
         System.out.println("Core: " + wand.getCore().name());
+        System.out.println("Power: " + wand.getPower());
     }
 }
