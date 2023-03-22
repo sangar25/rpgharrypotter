@@ -3,16 +3,17 @@ package org.isep;
 import java.util.Scanner;
 
 public class Wizard {
+    private static final int MAX_HEALTH_POINTS = 100;
     private String name;
     private int healthPoints;
 
     public Wizard(String name) {
-        this(name, 100); // Appelle le constructeur complet avec des points de vie par défaut de 100
+        this(name, MAX_HEALTH_POINTS);
     }
 
     public Wizard(String name, int healthPoints) {
         this.name = name;
-        this.healthPoints = healthPoints;
+        this.healthPoints = Math.min(healthPoints, MAX_HEALTH_POINTS);
     }
 
     public String getName() {
@@ -27,24 +28,31 @@ public class Wizard {
         return healthPoints;
     }
 
-    public void setHealthPoints(int healthPoints) {
-        this.healthPoints = healthPoints;
-    }
-
-    public void castSpell(Spell spell, PV target) {
-        System.out.println(this.getName() + " lance le sort " + spell.toString());
-        spell.cast();
-        if (spell == Spell.AVADA_KEDAVRA) {
-            System.out.println("Le sort Avada Kedavra ne laisse aucune chance à sa cible...");
-            target.takeDamage(100); // tue instantanément la cible
-        } else {
-            target.takeDamage(20); // inflige 20 points de dégâts à la cible
+    public void heal(int points) {
+        if (points > 0) {
+            int newHealthPoints = this.healthPoints + points;
+            if (newHealthPoints > MAX_HEALTH_POINTS) {
+                System.out.println("Vous ne pouvez pas récupérer autant de points de vie, vous dépasser vos points de vie maximum.");
+                return;
+            }
+            this.healthPoints = newHealthPoints;
+            System.out.println(this.name + " récupère " + points + " points de vie !");
+            System.out.println("Il a maintenant " + this.healthPoints + " points de vie.");
         }
     }
 
     public void loseHealthPoints(int points) {
-        this.healthPoints -= points;
-        System.out.println(this.name + " perd " + points + " points de vie !");
-        System.out.println("Il reste " + this.healthPoints + " points de vie à " + this.name + ".");
+        if (points > 0) {
+            healthPoints -= points;
+            System.out.println(name + " perd " + points + " points de vie !");
+            System.out.println("Il reste " + healthPoints + " points de vie à " + name + ".");
+            if (healthPoints <= 0) {
+                System.out.println(name + " est vaincu...");
+            }
+        }
+    }
+
+    public void takeDamage(int points) {
+        loseHealthPoints(points);
     }
 }

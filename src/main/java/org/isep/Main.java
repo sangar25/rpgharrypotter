@@ -28,16 +28,17 @@ public class Main {
 
         PV pv = new PV();
         int healthPoints = pv.getHealthPoints();
-        System.out.println("LE JEU PEUT ENFIN COMMENCER TU COMMENCES AVEC " + healthPoints + " POINTS DE VIE");
+        System.out.println("LE JEU PEUT ENFIN COMMENCER, TU COMMENCES AVEC " + healthPoints + " POINTS DE VIE");
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("LA PREMIERE EPREUVE: The Philosopher’s Stone");
         // créer l'ennemi Troll
 
-        Enemy troll = new Enemy("Troll", 50, 10, 5, 20);
+        Enemy troll = new Enemy("Troll", 20, 10, 20, 10);
 
         // afficher le message de combat
-        System.out.println("Un Troll sauvage apparaît !");
+        System.out.println("Un Troll sauvage apparaît pour le battre, tu dois soulever un objet et le relâcher lorsqu’ils se trouvent au-dessus de sa tête !");
+        System.out.println("Choisi le bon sort!");
 
         // boucle de combat
         while (wizard.getHealthPoints() > 0 && troll.getHealthPoints() > 0) {
@@ -58,11 +59,19 @@ public class Main {
 
             // utiliser le sort choisi
             if (choix == 1) {
-                System.out.println(wizard.getName() + " lance le sort LUMOS sur le Troll !");
-                troll.loseHealthPoints(20);
+                if (choix == 1) {
+                    System.out.println(wizard.getName() + " lance le sort LUMOS sur le Troll !");
+                    Spell spell = Spell.LUMOS;
+                    int damagePoints = spell.getDamagePoints();
+                    troll.loseHealthPoints(damagePoints); // Ajout de la fonction pour infliger des dégâts au troll
+                    System.out.println("Les points de dégâts de LUMOS sont : " + damagePoints);
+                }
             } else if (choix == 2) {
                 System.out.println(wizard.getName() + " lance le sort WINGARDIUM LEVIOSA sur le Troll !");
-                troll.loseHealthPoints(30);
+                Spell spell = Spell.WINGARDIUM_LEVIOSA;
+                int damagePoints = spell.getDamagePoints();
+                troll.loseHealthPoints(damagePoints); // Ajout de la fonction pour infliger des dégâts au troll
+                System.out.println("Les points de dégâts de LUMOS sont : " + damagePoints);
             } else {
                 System.out.println("Choix invalide.");
             }
@@ -70,10 +79,19 @@ public class Main {
             // vérifier si le Troll est mort
             if (troll.getHealthPoints() <= 0) {
                 System.out.println("Le Troll est vaincu !");
-                break;
+                System.out.println("Voulez-vous récupérer des points de vie (1) ou subir des dégâts (2) ?");
+                int damageOrHealingChoice = scanner.nextInt();
+                if (damageOrHealingChoice == 1) {
+                    System.out.println("Combien de points de vie voulez-vous récupérer ?");
+                    int healingChoice = scanner.nextInt();
+                    wizard.heal(healingChoice);
+                } else {
+                    System.out.println("Combien de dégâts voulez-vous subir ?");
+                    int damageChoice = scanner.nextInt();
+                    wizard.takeDamage(damageChoice);
+                    break;
+                }
             }
-
-
         }
     }
 }
