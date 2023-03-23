@@ -3,6 +3,10 @@ package org.isep;
 import java.util.Scanner;
 
 public class Main {
+        private static final int MAX_HEALTH_POINTS = 100; // ou une autre valeur que vous préférez
+        // le reste du code
+
+
     public static void main(String[] args) {
         System.out.println("Bienvenue à Poudlard!");
 
@@ -40,7 +44,11 @@ public class Main {
         System.out.println("Un Troll sauvage apparaît pour le battre, tu dois soulever un objet et le relâcher lorsqu’ils se trouvent au-dessus de sa tête !");
         System.out.println("Choisi le bon sort!");
 
-        // boucle de combat
+        // tableau des sorts et des points de dégâts associés
+        Spell[] spells = {Spell.LUMOS, Spell.WINGARDIUM_LEVIOSA};
+        int[] damages = {Spell.LUMOS.getDamagePoints(), Spell.WINGARDIUM_LEVIOSA.getDamagePoints()};
+
+// boucle de combat
         while (wizard.getHealthPoints() > 0 && troll.getHealthPoints() > 0) {
             System.out.println("Le Troll attaque " + wizard.getName() + " !");
             troll.trollAttack(wizard);
@@ -53,25 +61,18 @@ public class Main {
 
             // choix du sort
             System.out.println(wizard.getName() + ", que voulez-vous faire ?");
-            System.out.println("1. LUMOS");
-            System.out.println("2. WINGARDIUM LEVIOSA");
+            for (int i = 0; i < spells.length; i++) {
+                System.out.println((i+1) + ". " + spells[i].toString());
+            }
             int choix = scanner.nextInt();
 
             // utiliser le sort choisi
-            if (choix == 1) {
-                if (choix == 1) {
-                    System.out.println(wizard.getName() + " lance le sort LUMOS sur le Troll !");
-                    Spell spell = Spell.LUMOS;
-                    int damagePoints = spell.getDamagePoints();
-                    troll.loseHealthPoints(damagePoints); // Ajout de la fonction pour infliger des dégâts au troll
-                    System.out.println("Les points de dégâts de LUMOS sont : " + damagePoints);
-                }
-            } else if (choix == 2) {
-                System.out.println(wizard.getName() + " lance le sort WINGARDIUM LEVIOSA sur le Troll !");
-                Spell spell = Spell.WINGARDIUM_LEVIOSA;
-                int damagePoints = spell.getDamagePoints();
-                troll.loseHealthPoints(damagePoints); // Ajout de la fonction pour infliger des dégâts au troll
-                System.out.println("Les points de dégâts de LUMOS sont : " + damagePoints);
+            if (choix >= 1 && choix <= spells.length) {
+                Spell spell = spells[choix-1];
+                int damagePoints = damages[choix-1];
+                System.out.println(wizard.getName() + " lance le sort " + spell.toString() + " sur le Troll !");
+                troll.loseHealthPoints(damagePoints);
+                System.out.println("Les points de dégâts de " + spell.toString() + " sont : " + damagePoints);
             } else {
                 System.out.println("Choix invalide.");
             }
@@ -79,18 +80,38 @@ public class Main {
             // vérifier si le Troll est mort
             if (troll.getHealthPoints() <= 0) {
                 System.out.println("Le Troll est vaincu !");
-                System.out.println("Voulez-vous récupérer des points de vie (1) ou subir des dégâts (2) ?");
-                int damageOrHealingChoice = scanner.nextInt();
-                if (damageOrHealingChoice == 1) {
-                    System.out.println("Combien de points de vie voulez-vous récupérer ?");
-                    int healingChoice = scanner.nextInt();
-                    wizard.heal(healingChoice);
-                } else {
-                    System.out.println("Combien de dégâts voulez-vous subir ?");
-                    int damageChoice = scanner.nextInt();
-                    wizard.takeDamage(damageChoice);
-                    break;
+                int choice = 0;
+
+                while (choice != 1 && choice != 2) {
+                    System.out.println("Voulez-vous récupérer des points de vie (1) ou augmenter vos points de dégâts (2) ?");
+                    choice = scanner.nextInt();
+                    if (choice == 1) {
+                        int maxHealingPoints = MAX_HEALTH_POINTS - wizard.getHealthPoints();
+                        System.out.println("Quel sort voulez-vous utiliser pour gagner des points de vie ?");
+                        PotionType[] potionTypes = {PotionType.VULNERA_SANENTUR, PotionType.EPISKEY};
+                        for (int i = 0; i < potionTypes.length; i++) {
+                            System.out.println((i+1) + ". " + potionTypes[i].getName());
+                        }
+                        int spellChoice = scanner.nextInt();
+                        while (spellChoice < 1 || spellChoice > potionTypes.length) {
+                            System.out.println("Choix invalide, veuillez réessayer.");
+                            spellChoice = scanner.nextInt();
+                        }
+                        int healingPoints = potionTypes[spellChoice-1].getHealingPower();
+                        while (healingPoints > maxHealingPoints) {
+                            System.out.println("Vous ne pouvez pas récupérer autant de points de vie, vous dépassez vos PV MAX.");
+                            System.out.println("Quel sort voulez-vous utiliser pour gagner des points de vie ?");
+                            spellChoice = scanner.nextInt();
+                            healingPoints = potionTypes[spellChoice-1].getHealingPower();
+                        }
+                        wizard.heal(healingPoints);
+                    } else if (choice == 2) {
+                        wizard.takeDamage(3);
+                    } else {
+                        System.out.println("Choix invalide, veuillez réessayer.");
+                    }
                 }
+
             }
         }
     }

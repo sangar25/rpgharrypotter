@@ -16,17 +16,8 @@ public class Wand {
     public String getWood() {
         return wood;
     }
-
-    public void setWood(String wood) {
-        this.wood = wood;
-    }
-
     public int getLength() {
         return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
     }
 
     public Core getCore() {

@@ -3,7 +3,8 @@ package org.isep;
 import java.util.Scanner;
 
 public class Wizard {
-    private static final int MAX_HEALTH_POINTS = 100;
+    public static final int MAX_HEALTH_POINTS = 100;
+
     private String name;
     private int healthPoints;
 
@@ -32,7 +33,7 @@ public class Wizard {
         if (points > 0) {
             int newHealthPoints = this.healthPoints + points;
             if (newHealthPoints > MAX_HEALTH_POINTS) {
-                System.out.println("Vous ne pouvez pas récupérer autant de points de vie, vous dépasser vos points de vie maximum.");
+                System.out.println("Vous ne pouvez pas récupérer autant de points de vie, vous dépassez vos points de vie maximum.");
                 return;
             }
             this.healthPoints = newHealthPoints;
@@ -55,4 +56,13 @@ public class Wizard {
     public void takeDamage(int points) {
         loseHealthPoints(points);
     }
+    public void usePotion(Potion potion) {
+        int healingPower = potion.getHealingPower();
+        heal(healingPower);
+        System.out.println(this.name + " utilise " + potion.getName() + " et récupère " + healingPower + " points de vie !");
+    }
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
+    }
+
 }

@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58aaa4f9-3341-40f0-9685-0e0903d496b6" name="Changes" comment="maj 6">
+    <list default="true" id="58aaa4f9-3341-40f0-9685-0e0903d496b6" name="Changes" comment="maj 7">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/isep/PotionType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Spell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Spell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/PV.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/PV.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Potion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Potion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Wand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Wand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Wizard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,11 +28,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -127,8 +130,26 @@
       <option name="project" value="LOCAL" />
       <updated>1679440460291</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="maj 7">
+      <created>1679521978654</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679521978655</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="nouvelle version" />
@@ -137,7 +158,8 @@
     <MESSAGE value="maj 4" />
     <MESSAGE value="maj 5" />
     <MESSAGE value="maj 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="maj 6" />
+    <MESSAGE value="maj 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="maj 7" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/rpgharrypotter$Main.ic" NAME="Main Coverage Results" MODIFIED="1679241484001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
