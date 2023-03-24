@@ -22,47 +22,22 @@ public class Enemy {
         return healthPoints;
     }
 
-    public int getAttackPoints() {
-        return attackPoints;
-    }
 
     public int getDefensePoints() {
         return defensePoints;
     }
 
-    public int getStrength() {
-        return strength;
-    }
 
     public void loseHealthPoints(int points) {
         healthPoints -= points;
     }
 
-    public void attack(Player player) {
-        int damage = attackPoints - player.getDefensePoints();
-        if (damage > 0) {
-            System.out.println(name + " attaque " + player.getName() + " et lui inflige " + damage + " points de dégâts !");
-            player.loseHealthPoints(damage);
-        } else {
-            System.out.println(name + " attaque " + player.getName() + " mais celui-ci parvient à parer l'attaque !");
-        }
-    }
 
-    public void trollAttack(Player player) {
-        int damage = attackPoints - player.getDefensePoints();
-        if (damage > 0) {
-            System.out.println("Le Troll attaque " + player.getName() + " et lui inflige " + damage + " points de dégâts !");
-            player.loseHealthPoints(damage);
-        } else {
-            System.out.println("Le Troll attaque " + player.getName() + " mais celui-ci parvient à parer l'attaque !");
-        }
-    }
+
     public void trollAttack(Wizard wizard) {
         wizard.loseHealthPoints(strength);
     }
 
 
-    public void winFight() {
-        System.out.println(name + " a vaincu son ennemi !");
-    }
+
 }

@@ -41,7 +41,7 @@ public class Main {
         Enemy troll = new Enemy("Troll", 20, 10, 20, 10);
 
         // afficher le message de combat
-        System.out.println("Un Troll sauvage apparaît pour le battre, tu dois soulever un objet et le relâcher lorsqu’ils se trouvent au-dessus de sa tête !");
+        System.out.println("Un Troll sauvage apparaît dans les toilettes du donjon pour le battre, tu dois soulever un objet et le relâcher lorsqu’ils se trouvent au-dessus de sa tête !");
         System.out.println("Choisi le bon sort!");
 
         // tableau des sorts et des points de dégâts associés
@@ -79,7 +79,7 @@ public class Main {
 
             // vérifier si le Troll est mort
             if (troll.getHealthPoints() <= 0) {
-                System.out.println("Le Troll est vaincu !");
+                System.out.println("Le Troll est vaincu, il s'est évanoui grâce à l'objet que vous lui avez balancé\n !");
                 int choice = 0;
 
                 while (choice != 1 && choice != 2) {
@@ -119,6 +119,9 @@ public class Main {
                     }
                     int damagePoints = attackSpells[spellChoice-1].getDamagePoints();
                     wizard.increaseDamage(damagePoints);
+                    System.out.println("BRAVO VOUS AVEZ REUSSI LE PREMIER NIVEAU.");
+
+
                 }
 
             }

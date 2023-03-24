@@ -15,6 +15,6 @@ public enum Core {
         Core[] cores = Core.values(); // Récupère toutes les valeurs de l'énumération
         Random random = new Random(); // Initialise un générateur de nombres aléatoires
         int index = random.nextInt(cores.length); // Récupère un index aléatoire dans le tableau de valeurs
-        return cores[index]; // Retourne la valeur correspondante à
+        return cores[index]; // Retourne la valeur correspondante
     }
 }

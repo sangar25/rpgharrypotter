@@ -11,21 +11,13 @@ public class Boss {
         this.damagePoints = damagePoints;
     }
 
-    public String getName() {
-        return name;
-    }
 
-    public int getHealthPoints() {
-        return healthPoints;
-    }
+
 
     public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
 
-    public int getDamagePoints() {
-        return damagePoints;
-    }
 
     public void setDamagePoints(int damagePoints) {
         this.damagePoints = damagePoints;
