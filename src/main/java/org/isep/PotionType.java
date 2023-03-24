@@ -7,14 +7,12 @@ public enum PotionType {
     private String name;
     private int healingPower;
 
-    private PotionType(String name, int healingPower) {
+    PotionType(String name, int healingPower) {
         this.name = name;
         this.healingPower = healingPower;
     }
 
-    private PotionType(int healingPower) {
-        this.healingPower = healingPower;
-    }
+
     public String getName() {
         return name;
     }

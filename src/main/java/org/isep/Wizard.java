@@ -64,5 +64,13 @@ public class Wizard {
     public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
+    public void increaseDamage(int damageIncrement) {
+        for (Spell spell : Spell.values()) {
+            if (spell.damagePoints > 0) {
+                spell.damagePoints += damageIncrement;
+            }
+        }
+        System.out.println("Ton sort a été amélioré, votre sort a maintenant un bonus de " + damageIncrement + " points de dégâts !");
+    }
 
 }

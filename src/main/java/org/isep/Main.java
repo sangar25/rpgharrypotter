@@ -105,13 +105,23 @@ public class Main {
                             healingPoints = potionTypes[spellChoice-1].getHealingPower();
                         }
                         wizard.heal(healingPoints);
-                    } else if (choice == 2) {
-                        wizard.takeDamage(3);
-                    } else {
-                        System.out.println("Choix invalide, veuillez réessayer.");
+                } else if (choice == 2) {
+                    System.out.println("Vous avez choisi d'augmenter vos points de dégâts.");
+                    System.out.println("Quel sort voulez-vous augmenter ?");
+                    Spell[] attackSpells = {Spell.INCENDIO, Spell.BOMBARDIA};
+                    for (int i = 0; i < attackSpells.length; i++) {
+                        System.out.println((i+1) + ". " + attackSpells[i].getName());
                     }
+                    int spellChoice = scanner.nextInt();
+                    while (spellChoice < 1 || spellChoice > attackSpells.length) {
+                        System.out.println("Choix invalide, veuillez réessayer.");
+                        spellChoice = scanner.nextInt();
+                    }
+                    int damagePoints = attackSpells[spellChoice-1].getDamagePoints();
+                    wizard.increaseDamage(damagePoints);
                 }
 
+            }
             }
         }
     }
