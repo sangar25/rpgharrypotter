@@ -1,4 +1,6 @@
-package org.isep;
+package org.isep.Console;
+
+import org.isep.*;
 
 import java.util.Scanner;
 
@@ -16,9 +18,7 @@ public class Main {
         String wizardName = sc.nextLine();
 
         Wizard wizard = new Wizard(wizardName);
-        System.out.println("Joli prénom ! " + wizard.getName() + "!");
 
-        System.out.println("Suis moi on va chercher ta baguette mais n'oublie pas, c'est la baguette qui choisit le sorcier.");
         Wand wand = new Wand("chêne", 12, Core.randomCore());
         Core core = Core.randomCore();
 
@@ -28,11 +28,13 @@ public class Main {
         System.out.println("Il est maintenant temps de choisir votre maison de Poudlard.");
         SortingHat sortingHat = new SortingHat();
         System.out.println("Votre maison est...");
-        System.out.println(sortingHat.randomHouse().getName() + "!");
+        House randomHouse = sortingHat.randomHouse();
+        System.out.println(randomHouse.getName() + " : " + randomHouse.getDescription());
+
 
         PV pv = new PV();
         int healthPoints = pv.getHealthPoints();
-        System.out.println("LE JEU PEUT ENFIN COMMENCER, TU COMMENCES AVEC " + healthPoints + " POINTS DE VIE");
+        System.out.println("LE JEU PEUT ENFIN COMMENCER, TU COMMENCES AVEC " + healthPoints + " POINTS DE VIE, À 0 POINTS TU MEURTS");
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("LA PREMIERE EPREUVE: The Philosopher’s Stone");
@@ -124,8 +126,74 @@ public class Main {
 
                 }
 
-            }
-            }
-        }
-    }
+                    System.out.println("LE DEUXIÈME NIVEAU : The Chamber of Secrets");
+
+// créer l'ennemi Basilic
+                    Enemy basilisk = new Enemy("Basilic", 50, 20, 30, 20);
+
+// afficher le message de combat
+                    System.out.println("Vous êtes face au terrible basilic, vous devez le vaincre pour sauver l'école de Poudlard !");
+
+// boucle de combat
+                    while (wizard.getHealthPoints() > 0 && basilisk.getHealthPoints() > 0) {
+                        // choix de l'action
+                        System.out.println(wizard.getName() + ", que voulez-vous faire ?");
+                        System.out.println("1. Lancer un sort");
+                        System.out.println("2. Attaquer avec l'épée légendaire de Godric Gryffindor (disponible uniquement pour les Gryffondors)");
+                        int choix1 = scanner.nextInt();
+
+                        // utiliser l'action choisie
+                        if (choix1 == 1) {
+                            // choix du sort
+                            System.out.println("Quel sort voulez-vous utiliser ?");
+                            for (int i = 0; i < spells.length; i++) {
+                                System.out.println((i+1) + ". " + spells[i].toString());
+                            }
+                            int spellChoice = scanner.nextInt();
+
+                            // utiliser le sort choisi
+                            if (spellChoice >= 1 && spellChoice <= spells.length) {
+                                Spell spell = spells[spellChoice-1];
+                                int damagePoints = damages[spellChoice-1];
+                                System.out.println(wizard.getName() + " lance le sort " + spell.toString() + " sur le basilic !");
+                                basilisk.loseHealthPoints(damagePoints);
+                                System.out.println("Les points de dégâts de " + spell.toString() + " sont : " + damagePoints);
+                            } else {
+                                System.out.println("Choix invalide.");
+                            }
+
+                        }else if (choix1 == 2) {
+                            // Vérifier si le joueur est à Gryffondor
+                            House gryffondor = sortingHat.getHouseByName("Gryffondor");
+                            wizard.setHouse(gryffondor);
+                            if (wizard.getHouse() != null && wizard.getHouse().equals(gryffondor)) {// Le joueur est à Gryffondor, donc il peut utiliser l'épée légendaire
+                                System.out.println(wizard.getName() + " attaque avec l'épée légendaire de Godric Gryffondor !");
+                                basilisk.loseHealthPoints(50);
+                                System.out.println("Les points de dégâts de l'épée légendaire sont : 50");
+                                wizard.setHouse(gryffondor);
+                            } else {
+                                // Le joueur n'est pas à Gryffondor, donc il ne peut pas utiliser l'épée légendaire
+                                System.out.println("Désolé, vous ne pouvez pas utiliser l'épée légendaire car vous n'êtes pas de la maison Gryffondor.");
+                            }
+                        }
+
+                        // vérifier si le basilic est mort
+                        if (basilisk.getHealthPoints() <= 0) {
+                            System.out.println("Vous avez vaincu le basilic !");
+                            break;
+                        }
+
+                        // tour du basilic
+                        System.out.println("Le basilic attaque " + wizard.getName() + " !");
+                        basilisk.basiliskAttack(wizard);
+
+                        // vérifier si le joueur est mort
+                        if (wizard.getHealthPoints() <= 0) {
+                            System.out.println(wizard.getName() + " est KO !");
+                            break;
+                        }
+                    }
+                }
+    }}
+}
 }

@@ -1,4 +1,5 @@
 package org.isep;
+
 public class Enemy {
     private String name;
     private int healthPoints;
@@ -14,30 +15,20 @@ public class Enemy {
         this.strength = strength;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public int getHealthPoints() {
         return healthPoints;
     }
-
-
-    public int getDefensePoints() {
-        return defensePoints;
-    }
-
 
     public void loseHealthPoints(int points) {
         healthPoints -= points;
     }
 
-
-
     public void trollAttack(Wizard wizard) {
         wizard.loseHealthPoints(strength);
     }
 
-
+    public void basiliskAttack(Wizard wizard) {
+        wizard.loseHealthPoints(strength);
+    }
 
 }

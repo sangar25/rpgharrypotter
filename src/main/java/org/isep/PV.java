@@ -1,6 +1,5 @@
 package org.isep;
-import java.util.Random;
-import java.util.Scanner;
+import java.util.Random;;
 
 
 public class PV {
@@ -18,9 +17,7 @@ public class PV {
         return healthPoints;
     }
 
-    public int getRewardPoints() {
-        return rewardPoints;
-    }
+
 
     public void setRewardPoints(int rewardPoints) {
         this.rewardPoints = rewardPoints;

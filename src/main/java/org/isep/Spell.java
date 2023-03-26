@@ -6,7 +6,10 @@ public enum Spell {
     EXPECTO_PATRONUM(70, 70),
     AVADA_KEDAVRA(5, 100),
     INCENDIO("Incendio", 25),
+    ÉPÉE ("l'épée légendaire de Godric Gryﬀindor", 50),
     BOMBARDIA("Bombardia", 35);
+
+
 
     private int successRate;
     public int damagePoints;

@@ -1,5 +1,7 @@
 package org.isep;
 
+import org.isep.Console.Core;
+
 import java.util.Random;
 
 public class Wand {

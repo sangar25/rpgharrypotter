@@ -1,9 +1,9 @@
-package org.isep;
+package org.isep.Console;
 
 import java.util.Random;
 
 public enum Core {
-    plumedefénix,
+    plumedefenix,
     corail,
     poiludeblaireau,
     crindelicorne,

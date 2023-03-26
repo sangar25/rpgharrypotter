@@ -7,10 +7,12 @@ public class Wizard {
 
     private String name;
     private int healthPoints;
+    private House house;
 
     public Wizard(String name) {
         this(name, MAX_HEALTH_POINTS);
     }
+
 
     public Wizard(String name, int healthPoints) {
         this.name = name;
@@ -19,10 +21,6 @@ public class Wizard {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getHealthPoints() {
@@ -53,9 +51,6 @@ public class Wizard {
         }
     }
 
-    public void takeDamage(int points) {
-        loseHealthPoints(points);
-    }
     public void usePotion(Potion potion) {
         int healingPower = potion.getHealingPower();
         heal(healingPower);
@@ -72,5 +67,13 @@ public class Wizard {
         }
         System.out.println("Ton sort a été amélioré, votre sort a maintenant un bonus de " + damageIncrement + " points de dégâts !");
     }
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
+    public House getHouse() {
+        return house;
+    }
+
 
 }
