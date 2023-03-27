@@ -1,22 +1,23 @@
-package org.isep;
+package org.isep.Console;
 
-import java.util.Scanner;
+import org.isep.Core.House;
 
 public class Wizard {
     public static final int MAX_HEALTH_POINTS = 100;
 
     private String name;
     private int healthPoints;
+    private int damagePoints;
     private House house;
 
     public Wizard(String name) {
-        this(name, MAX_HEALTH_POINTS);
+        this(name, MAX_HEALTH_POINTS, 0);
     }
 
-
-    public Wizard(String name, int healthPoints) {
+    public Wizard(String name, int healthPoints, int damagePoints) {
         this.name = name;
         this.healthPoints = Math.min(healthPoints, MAX_HEALTH_POINTS);
+        this.damagePoints = damagePoints;
     }
 
     public String getName() {
@@ -25,6 +26,10 @@ public class Wizard {
 
     public int getHealthPoints() {
         return healthPoints;
+    }
+
+    public int getDamagePoints() {
+        return damagePoints;
     }
 
     public void heal(int points) {
@@ -56,24 +61,32 @@ public class Wizard {
         heal(healingPower);
         System.out.println(this.name + " utilise " + potion.getName() + " et récupère " + healingPower + " points de vie !");
     }
+
     public void setHealthPoints(int healthPoints) {
         this.healthPoints = healthPoints;
     }
-    public void increaseDamage(int damageIncrement) {
-        for (Spell spell : Spell.values()) {
-            if (spell.damagePoints > 0) {
-                spell.damagePoints += damageIncrement;
-            }
-        }
-        System.out.println("Ton sort a été amélioré, votre sort a maintenant un bonus de " + damageIncrement + " points de dégâts !");
+
+    public void gainHealthPoints(int healthPointsIncrement) {
+        setHealthPoints(getHealthPoints() + healthPointsIncrement);
+        System.out.println(this.name + " gagne " + healthPointsIncrement + " points de vie !");
+        System.out.println("Il a maintenant " + this.healthPoints + " points de vie.");
     }
 
-    public void setHouse(House house) {
-        this.house = house;
+    public void increaseDamage() {
+        increaseDamagePoints(10);
     }
+
+    public void increaseDamagePoints(int damagePointsIncrement) {
+        this.damagePoints += damagePointsIncrement;
+        System.out.println(this.name + " augmente ses points de dégâts de " + damagePointsIncrement + ".");
+        System.out.println("Il a maintenant " + this.damagePoints + " points de dégâts.");
+    }
+
     public House getHouse() {
         return house;
     }
 
-
+    public void destroyJournal(String journalName) {
+        System.out.println(this.name + " utilise un des crocs pour détruire le " + journalName + ".");
+    }
 }

@@ -1,4 +1,4 @@
-package org.isep;
+package org.isep.Core;
 import java.util.Random;;
 
 

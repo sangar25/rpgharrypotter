@@ -1,4 +1,4 @@
-package org.isep;
+package org.isep.Console;
 
 public enum PotionType {
     VULNERA_SANENTUR("Vulnera Sanentur", 5),

@@ -1,4 +1,4 @@
-package org.isep;
+package org.isep.Core;
 
 import org.isep.Console.Core;
 

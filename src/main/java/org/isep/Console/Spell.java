@@ -1,13 +1,16 @@
-package org.isep;
+package org.isep.Console;
 
 public enum Spell {
     LUMOS(70, 5),
+    ACIO(70, 5),
     WINGARDIUM_LEVIOSA(50, 30),
     EXPECTO_PATRONUM(70, 70),
     AVADA_KEDAVRA(5, 100),
     INCENDIO("Incendio", 25),
     ÉPÉE ("l'épée légendaire de Godric Gryﬀindor", 50),
     BOMBARDIA("Bombardia", 35);
+
+
 
 
 
@@ -38,5 +41,10 @@ public enum Spell {
     public String getName() {
         return spellName;
     }
+
+    public void setDamagePoints(int damagePoints) {
+        this.damagePoints = damagePoints;
+    }
+
 
 }

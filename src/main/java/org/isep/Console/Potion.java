@@ -1,4 +1,4 @@
-package org.isep;
+package org.isep.Console;
 
 public class Potion {
     private PotionType type;

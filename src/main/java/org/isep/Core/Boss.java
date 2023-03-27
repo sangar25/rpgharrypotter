@@ -1,4 +1,4 @@
-package org.isep;
+package org.isep.Core;
 
 public class Boss {
     private int damagePoints;
