@@ -90,4 +90,13 @@ public class Wizard {
     public void destroyJournal(String journalName) {
         System.out.println(this.name + " utilise un des crocs pour détruire le " + journalName + ".");
     }
+
+    // Méthode de calcul de distance entre deux points
+
+    public static double distance(int[] point1, int[] point2) {
+        int dx = point1[0] - point2[0];
+        int dy = point1[1] - point2[1];
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
 }
