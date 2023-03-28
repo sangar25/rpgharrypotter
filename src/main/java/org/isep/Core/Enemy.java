@@ -33,7 +33,6 @@ public class Enemy {
         wizard.loseHealthPoints(strength);
     }
 
-    public void dementorAttack(Wizard wizard) {
-        wizard.loseHealthPoints(strength);
+    public void dementorAttack(Wizard wizard) {wizard.loseHealthPoints(strength);
     }
 }

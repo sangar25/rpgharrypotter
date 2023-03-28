@@ -5,7 +5,7 @@ import org.isep.Core.*;
 import java.util.Scanner;
 
 public class Main {
-        private static final int MAX_HEALTH_POINTS = 100; // ou une autre valeur que vous préférez
+        private static final int MAX_HEALTH_POINTS = 100;
 
 
     public static void main(String[] args) {
@@ -51,7 +51,7 @@ public class Main {
 
         // tableau des sorts et des points de dégâts associés
         Spell[] spells = {Spell.LUMOS, Spell.WINGARDIUM_LEVIOSA};
-        int[] damages = {Spell.LUMOS.getDamagePoints(), Spell.WINGARDIUM_LEVIOSA.getDamagePoints()};
+        int[] damages = {Spell.LUMOS.getDamagePoints(), Spell.WINGARDIUM_LEVIOSA.getDamagePoints()} ;
 
 // boucle de combat
         while (wizard.getHealthPoints() > 0 && troll.getHealthPoints() > 0) {
@@ -113,7 +113,7 @@ public class Main {
                 } else if (choice == 2) {
                     System.out.println("Vous avez choisi d'augmenter vos points de dégâts.");
                     System.out.println("Quel sort voulez-vous augmenter ?");
-                    Spell[] attackSpells = {Spell.INCENDIO, Spell.BOMBARDIA};
+                    Spell[] attackSpells = {Spell.INCENDIO, Spell.BOMBARDIA, Spell.ACIO};
                     for (int i = 0; i < attackSpells.length; i++) {
                         System.out.println((i+1) + ". " + attackSpells[i].getName());
                     }
@@ -165,7 +165,7 @@ public class Main {
                             System.out.println("Choix invalide.");
                         }
 
-                    } else if (choix1 == 2) {
+                    } else if (choix == 2) {
                         House joueurMaison = wizard.getHouse();
                         // Vérifier si le joueur est à Gryffondor
                         House gryffondor = sortingHat.getHouseByName("Gryffondor");
@@ -209,22 +209,20 @@ public class Main {
 
                         }
 
-                    }System.out.println("TROISIÈME EPREUVE: Les Détraqueurs");
+                    }
+
+                    System.out.println("TROISIÈME EPREUVE: Les Détraqueurs");
 
 // créer l'ennemi Détraqueur
                     Enemy dementor = new Enemy("Détraqueur", 30, 0, 40, 30);
 
-// afficher le message de combat
-                    System.out.println("Les Détraqueurs errent dans les rues et les campagnes, tu dois utiliser le sort Expectro Patronum pour les vaincre !");
-                    System.out.println("Choisissez le sort approprié");
+                    System.out.println("Les détraqueurs sont en train de semer la terreur à Poudlard. " + wizard.getName() + " doit les vaincre pour sauver l'école des sorciers.");
 
-// tableau des sorts et des points de dégâts associés
-                    Spell[] spell = {Spell. EXPECTO_PATRONUM};
-                    int[] damage= {Spell.EXPECTO_PATRONUM.getDamagePoints()};
+
 
 // boucle de combat
                     while (wizard.getHealthPoints() > 0 && dementor.getHealthPoints() > 0) {
-                        System.out.println("Le Détraqueur attaque " + wizard.getName() + " !");
+                        System.out.println("Les détraqueurs attaquent " + wizard.getName() + " !");
                         dementor.dementorAttack(wizard);
 
                         // vérifier si le joueur est mort
@@ -238,13 +236,14 @@ public class Main {
                         for (int i = 0; i < spells.length; i++) {
                             System.out.println((i+1) + ". " + spells[i].toString());
                         }
-                        int choix6 = scanner.nextInt();
+
+                        int choix3 = scanner.nextInt();
 
                         // utiliser le sort choisi
-                        if (choix6 >= 1 && choix <= spells.length) {
-                            Spell spell1spell = spells[choix-1];
-                            int damagePoints = damages[choix-1];
-                            System.out.println(wizard.getName() + " lance le sort " + spell.toString() + " sur le Détraqueur !");
+                        if (choix3 >= 1 && choix3 <= spells.length) {
+                            Spell spell = spells[choix3-1];
+                            int damagePoints = damages[choix3-1];
+                            System.out.println(wizard.getName() + " lance le sort " + spell.toString() + " sur les détraqueurs !");
                             dementor.loseHealthPoints(damagePoints);
                             System.out.println("Les points de dégâts de " + spell.toString() + " sont : " + damagePoints);
                         } else {
@@ -253,48 +252,97 @@ public class Main {
 
                         // vérifier si le Détraqueur est mort
                         if (dementor.getHealthPoints() <= 0) {
-                            System.out.println("Le Détraqueur est vaincu !");
-                            int choiceX = 0;
+                            System.out.println("Les Détraqueurs se sont enfuis");
+                            int choice2 = 0;
 
-                            while (choiceX != 1 && choice != 2) {
+                            while (choice2 != 1 && choice2 != 2) {
                                 System.out.println("Voulez-vous récupérer des points de vie (1) ou augmenter vos points de dégâts (2) ?");
-                                choice = scanner.nextInt();
-                                if (choiceX == 1) {
-                                    int maxHealingPoints = MAX_HEALTH_POINTS - wizard.getHealthPoints();
-                                    System.out.println("Quel sort voulez-vous utiliser pour gagner des points de vie ?");
+                                choice2 = scanner.nextInt();
+                                if (choice2 == 1) {
+                                    int maxHealingPoints = MAX_HEALTH_POINTS - wizard.getHealthPoints();                                    System.out.println("Quel sort voulez-vous utiliser pour gagner des points de vie ?");
                                     PotionType[] potionTypes = {PotionType.VULNERA_SANENTUR, PotionType.EPISKEY};
                                     for (int i = 0; i < potionTypes.length; i++) {
                                         System.out.println((i+1) + ". " + potionTypes[i].getName());
                                     }
-                                    int spellChoiceX = scanner.nextInt();
-                                    while (spellChoiceX < 1 || spellChoiceX > potionTypes.length) {
+                                    int spellChoice2 = scanner.nextInt();
+                                    while (spellChoice2 < 1 || spellChoice2 > potionTypes.length)
+                                    {
                                         System.out.println("Choix invalide, veuillez réessayer.");
-                                        spellChoiceX = scanner.nextInt();
+                                        spellChoice2 = scanner.nextInt();
                                     }
-                                    int healingPoints = potionTypes[spellChoiceX-1].getHealingPower();
+                                    int healingPoints = potionTypes[spellChoice2-1].getHealingPower();
                                     while (healingPoints > maxHealingPoints) {
-                                        System.out.println("Vous ne pouvez pas récupérer plus de " + maxHealingPoints + " points de vie.");
-                                        healingPoints = scanner.nextInt();
+                                        System.out.println("Vous ne pouvez pas récupérer autant de points de vie, vous dépassez vos PV MAX.");
+                                        System.out.println("Quel sort voulez-vous utiliser pour gagner des points de vie ?");
+                                        spellChoice2 = scanner.nextInt();
+                                        healingPoints = potionTypes[spellChoice2-1].getHealingPower();
                                     }
-                                    wizard.gainHealthPoints(healingPoints);
-                                    System.out.println(wizard.getName() + " récupère " + healingPoints + " points de vie.");
-                                } else if (choice == 2) {
-                                    wizard.increaseDamagePoints(5);
-                                    System.out.println(wizard.getName() + " augmente ses points de dégâts.");
+                                    wizard.heal(healingPoints);
+                                } else if (choice2 == 2) {
+                                    System.out.println("Vous avez choisi d'augmenter vos points de dégâts.");
+                                    System.out.println("Quel sort voulez-vous augmenter ?");
+                                    Spell[] attackSpells = {Spell.INCENDIO, Spell.BOMBARDIA};
+                                    for (int i = 0; i < attackSpells.length; i++) {
+                                        System.out.println((i+1) + ". " + attackSpells[i].getName());
+                                    }
+                                    int spellChoice2 = scanner.nextInt();
+                                    while (spellChoice2 < 1 || spellChoice2 > attackSpells.length) {
+                                        System.out.println("Choix invalide, veuillez réessayer.");
+                                        spellChoice2 = scanner.nextInt();
+                                    }
+                                    int damagePoints = attackSpells[spellChoice2-1].getDamagePoints();
+                                    wizard.increaseDamage();
+                                    System.out.println("BRAVO VOUS AVEZ REUSSI LE TROISIEME NIVEAU.");
+
+
+                                    System.out.println("QUATRIEME EPREUVE: Le gobelet de feu");
+
+                                    Scanner scanner = new Scanner(System.in);
+
+                                    // Positions des personnages
+                                    int[] positionJoueur = {0, 0};
+                                    int[] positionVoldemort = {10, 10};
+                                    int[] positionPettigrew = {-10, -10};
+                                    int[] positionPortkey = {5, 5};
+
+                                    // Boucle de déplacement
+                                    while (distance(positionJoueur, positionPortkey) > 1) {
+                                        // Déplacement du joueur
+                                        System.out.println("Où voulez-vous aller ?");
+                                        System.out.print("x : ");
+                                        int deplacementX = scanner.nextInt();
+                                        System.out.print("y : ");
+                                        int deplacementY = scanner.nextInt();
+                                        positionJoueur[0] += deplacementX;
+                                        positionJoueur[1] += deplacementY;
+
+                                        // Déplacement de Voldemort
+                                        positionVoldemort[0] += (int)(Math.random() * 5);
+                                        positionVoldemort[1] += (int)(Math.random() * 5);
+
+                                        // Déplacement de Peter Pettigrew
+                                        positionPettigrew[0] += (int)(Math.random() * 5);
+                                        positionPettigrew[1] += (int)(Math.random() * 5);
+
+                                        System.out.println("Vous êtes à la position (" + positionJoueur[0] + "," + positionJoueur[1] + ")");
+                                        System.out.println("Voldemort est à la position (" + positionVoldemort[0] + "," + positionVoldemort[1] + ")");
+                                        System.out.println("Peter Pettigrew est à la position (" + positionPettigrew[0] + "," + positionPettigrew[1] + ")");
+                                    }
+
+                                    // Attraction du portkey
+                                    System.out.println("Vous êtes assez proche du Portkey !");
+                                    System.out.println("Vous utilisez Accio !");
+                                    System.out.println("*Le portkey vole à travers le cimetière et arrive dans votre main*");
+                                }
+
+                                // Méthode de calcul de distance entre deux points
+                                public static double distance(int[] position1, int[] position2) {
+                                    int deltaX = position2[0] - position1[0];
+                                    int deltaY = position2[1] - position1[1];
+                                    return Math.sqrt(Math.pow(deltaX, 2) + Math.pow(deltaY, 2));
                                 }
                             }
-                        }
 
-// vérifier si le joueur a gagné ou perdu
-                        if (wizard.getHealthPoints() <= 0) {
-                            System.out.println("Vous avez perdu !");
-                        } else {
-                            System.out.println("Félicitations, vous avez vaincu les Détraqueurs !");
-                            System.out.println("Une epreuve de plus validé !");
-                        }
+                        }}}}
 
-                                    }
-    }}
-}
-}
-}
+                }}}

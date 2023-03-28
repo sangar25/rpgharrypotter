@@ -42,6 +42,7 @@ public class Wizard {
             this.healthPoints = newHealthPoints;
             System.out.println(this.name + " récupère " + points + " points de vie !");
             System.out.println("Il a maintenant " + this.healthPoints + " points de vie.");
+            System.out.println("BRAVO VOUS AVEZ REUSSI LE NIVEAU.");
         }
     }
 
