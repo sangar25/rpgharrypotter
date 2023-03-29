@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="58aaa4f9-3341-40f0-9685-0e0903d496b6" name="Changes" comment="maj 13">
+    <list default="true" id="58aaa4f9-3341-40f0-9685-0e0903d496b6" name="Changes" comment="maj 14">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/isep/Console/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Console/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Console/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/isep/Console/Wizard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/isep/Console/Wizard.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680032374738</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="maj 14">
+      <created>1680041376698</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680041376699</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,7 +210,8 @@
     <MESSAGE value="maj 11" />
     <MESSAGE value="maj 12" />
     <MESSAGE value="maj 13" />
-    <option name="LAST_COMMIT_MESSAGE" value="maj 13" />
+    <MESSAGE value="maj 14" />
+    <option name="LAST_COMMIT_MESSAGE" value="maj 14" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/rpgharrypotter$Main.ic" NAME="Main Coverage Results" MODIFIED="1679241484001" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
