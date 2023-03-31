@@ -9,6 +9,19 @@ public class Wizard {
     private int healthPoints;
     private int damagePoints;
     private House house;
+    private boolean hasFireworks = false;
+
+    public boolean hasFireworks() {
+        return hasFireworks;
+    }
+
+    public void setHasFireworks(boolean hasFireworks) {
+        this.hasFireworks = hasFireworks;
+    }
+
+    public int getHealth() {
+        return getHealthPoints();
+    }
 
     public Wizard(String name) {
         this(name, MAX_HEALTH_POINTS, 0);
@@ -57,6 +70,17 @@ public class Wizard {
         }
     }
 
+    public void takeDamage(int damage) {
+        if (damage > 0) {
+            healthPoints -= damage;
+            System.out.println(name + " subit " + damage + " points de dégâts !");
+            System.out.println("Il reste " + healthPoints + " points de vie à " + name + ".");
+            if (healthPoints <= 0) {
+                System.out.println(name + " est vaincu...");
+            }
+        }
+    }
+
     public void usePotion(Potion potion) {
         int healingPower = potion.getHealingPower();
         heal(healingPower);
@@ -67,17 +91,12 @@ public class Wizard {
         this.healthPoints = healthPoints;
     }
 
-    public void gainHealthPoints(int healthPointsIncrement) {
-        setHealthPoints(getHealthPoints() + healthPointsIncrement);
-        System.out.println(this.name + " gagne " + healthPointsIncrement + " points de vie !");
-        System.out.println("Il a maintenant " + this.healthPoints + " points de vie.");
-    }
 
     public void increaseDamage() {
         increaseDamagePoints(10);
     }
 
-    public void increaseDamagePoints(int damagePointsIncrement) {
+        public void increaseDamagePoints(int damagePointsIncrement) {
         this.damagePoints += damagePointsIncrement;
         System.out.println(this.name + " augmente ses points de dégâts de " + damagePointsIncrement + ".");
         System.out.println("Il a maintenant " + this.damagePoints + " points de dégâts.");
@@ -91,12 +110,21 @@ public class Wizard {
         System.out.println(this.name + " utilise un des crocs pour détruire le " + journalName + ".");
     }
 
+
+    public void addFireworks() {
+        this.hasFireworks = true;
+        System.out.println(this.name + " ajoute des feux d'artifice à son inventaire !");
+    }
+
+
     // Méthode de calcul de distance entre deux points
 
     public static double distance(int[] point1, int[] point2) {
         int dx = point1[0] - point2[0];
         int dy = point1[1] - point2[1];
         return Math.sqrt(dx * dx + dy * dy);
+
     }
+
 
 }

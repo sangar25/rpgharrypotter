@@ -8,6 +8,16 @@ public class Enemy {
     private int attackPoints;
     private int defensePoints;
     private int strength;
+    private int health;
+
+    public int getHealth() {
+            return health;
+        }
+
+        public void takeDamage(int damage) {
+            health -= damage;
+        }
+
 
     public Enemy(String name, int healthPoints, int attackPoints, int defensePoints, int strength) {
         this.name = name;
@@ -15,6 +25,10 @@ public class Enemy {
         this.attackPoints = attackPoints;
         this.defensePoints = defensePoints;
         this.strength = strength;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getHealthPoints() {
@@ -33,6 +47,15 @@ public class Enemy {
         wizard.loseHealthPoints(strength);
     }
 
-    public void dementorAttack(Wizard wizard) {wizard.loseHealthPoints(strength);
+    public void dementorAttack(Wizard wizard) {
+        wizard.loseHealthPoints(strength);
+    }
+    public void mangemortAttack(Wizard wizard) {
+        wizard.loseHealthPoints(strength);
+    }
+
+    public int doloresAttack(Wizard wizard) {
+        wizard.loseHealthPoints(strength);
+        return 0;
     }
 }
